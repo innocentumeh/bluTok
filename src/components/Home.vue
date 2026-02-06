@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 import {
   ref,
   computed,
@@ -7,6 +7,8 @@ import {
   $navigateTo,
 } from 'nativescript-vue';
 import Details from './Details.vue';
+import { appStore } from "~/store/app";
+const store = appStore();
 
 const counter = ref(0);
 const message = computed(() => {
@@ -17,7 +19,7 @@ function logMessage() {
   console.log('You have tapped the message!');
 }
 
-let interval: any;
+let interval = null;
 onMounted(() => {
   console.log('mounted');
   interval = setInterval(() => counter.value++, 100);

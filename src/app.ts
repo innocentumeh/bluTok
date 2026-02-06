@@ -1,4 +1,5 @@
 import { createApp } from 'nativescript-vue';
 import Home from './components/Home.vue';
-
-createApp(Home).start();
+import {createPinia} from "pinia";
+const pinia = createPinia();
+createApp(Home).use(pinia).start();
